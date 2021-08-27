@@ -11,13 +11,11 @@ import postsRoute from './routes/posts.js';
 const app = express();
 
 dotenv.config({ path: './config/config.env' });
-
-app.use('/posts', postsRoute);
-
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
-
 app.use(cors());
+
+app.use('/posts', postsRoute);
 
 const PORT = process.env.PORT || 5000;
 
